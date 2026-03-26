@@ -134,3 +134,51 @@ Upload the file
 shelby upload test.txt myfile.txt -e "in 7 days" --assume-yes
 ```
 
+**Step- 9: Verify Upload**
+
+```bash
+shelby account blobs
+```
+
+if error occurs like ``` "Error listing blobs: Authentication required. Please add an indexer API key to your context configuration.
+   Run 'shelby context update shelbynet --indexer-api-key YOUR_KEY'" ``` 
+   
+   then run 
+   ```bash
+nano ~/.shelby/config.yaml
+```
+and add your apy key manually like this ```api_key: aptoslabs_********************************``` under shelbyney:
+
+<img width="576" height="443" alt="Screenshot 2026-03-26 140317" src="https://github.com/user-attachments/assets/18cab61e-54af-48d3-bb1a-643df52546ed" />
+
+Then press enter and save
+
+Then run
+
+```bash
+shelby context use shelbynet
+```
+
+Then use the command again ```shelby account blobs``` , now this should work
+
+**Step- 10: Download File**
+
+Run
+```bash
+shelby download myfile.txt downloaded.txt
+```
+And to check run
+```bash
+cat downloaded.txt
+```
+
+Output: ```Hi Shelby!```
+
+**Step- 11: turn off auto delete**
+
+Go to https://github.com/codespaces
+
+click three dot and untick auto-delete codespace
+
+<img width="1016" height="466" alt="Screenshot 2026-03-26 141311" src="https://github.com/user-attachments/assets/20ca8242-167c-4759-96f6-e1718646344e" />
+
